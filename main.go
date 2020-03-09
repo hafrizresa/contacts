@@ -17,7 +17,7 @@ func main() {
 		port = "8080"
 	}
 	fmt.Println(port)
-	router.HandleFunc(controllers.CreateAccount).Methods(("GET"))
+	router.HandleFunc("/api/new", controllers.CreateAccount).Methods(("GET"))
 	err := http.ListenAndServe(":"+port, router)
 	if err != nil {
 		fmt.Println(err)
