@@ -11,14 +11,20 @@ import (
 
 func main() {
 	router := mux.NewRouter()
+
+	//INI MIDDLEWARE
+	// router.Use()
+
 	port := os.Getenv("PORT")
 	if port == "" {
 		port = "8080"
 	}
+
 	fmt.Println(port)
 
-	router.HandleFunc("/api/new", controllers.CreateAccount).Methods(("POST"))
-	router.Handle("api/login", controllers.AuthUser).Methods("POST")
+	router.HandleFunc("/api/new", controllers.CreateAccount).Methods("POST")
+	router.HandleFunc("/api/login", controllers.AuthUser).Methods("POST")
+
 	err := http.ListenAndServe(":"+port, router)
 	if err != nil {
 		fmt.Println(err)
