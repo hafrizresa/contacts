@@ -5,6 +5,6 @@ import (
 	"net/http"
 )
 
-func CreateAccount(w http.ResponseWriter, r *http.Response) {
+var CreateAccount = func(w http.ResponseWriter, r *http.Response) {
 	fmt.Println("masuk sini")
 }
